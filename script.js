@@ -147,11 +147,17 @@ document.getElementById("pokemonForm").addEventListener("submit", async function
   event.preventDefault();
   
   const pokemonName = document.getElementById("pokemonName").value;
-  
+
   try {
     let pokemonDetails = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
     var jsonResult = await pokemonDetails.json();
 
+    const detailsHtml = `
+    <h2>${jsonResult.name}</h2>
+    <p>Ability: ${jsonResult.abilities[0].ability.name}</p>
+    <p>Height: ${jsonResult.height}</p>
+    `;
+    document.getElementById("pokemonDetails").innerHTML = detailsHtml;
     
 } catch (err) {
   
