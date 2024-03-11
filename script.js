@@ -160,6 +160,7 @@ document.getElementById("pokemonForm").addEventListener("submit", async function
     document.getElementById("pokemonDetails").innerHTML = detailsHtml;
     
 } catch (err) {
-  
+  const errorHtml = `<p>Error: ${err.message}. Please try a different Pokemon name.</p>`;
+        document.getElementById("pokemonDetails").innerHTML = errorHtml;
 }
 });
