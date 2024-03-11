@@ -147,5 +147,13 @@ document.getElementById("pokemonForm").addEventListener("submit", async function
   event.preventDefault();
   
   const pokemonName = document.getElementById("pokemonName").value;
+  
+  try {
+    let pokemonDetails = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+    var jsonResult = await pokemonDetails.json();
 
+    
+} catch (err) {
+  
+}
 });
