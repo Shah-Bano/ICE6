@@ -128,3 +128,22 @@ document
 // 2. After the user submits the form, send an API GET Request to the pokeapi searching for the details of the pokemon name the user submitted from the form.
 // 3. If the api returns the pokemon details successfully, then display the details of the pokemon in the HTML (i.e. update the body of the HTML to have the pokemon)
 //4 If  the api returns an error that it can't find the pokemon, display the error to the user and ask them to type a different pokemon name
+
+document.getElementById("loadPokemon").addEventListener("click", async function () {
+  try {
+      let pokemonList = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10&offset=0");
+      var pokemonString = "";
+      var jsonResults = await pokemonList.json();
+      jsonResults.results.forEach((pokemon) => {
+          pokemonString += `<li><a href=${pokemon.url}>${pokemon.name}</a></li>`;
+      });
+      document.getElementById("pokemonList").innerHTML = pokemonString;
+  } catch (err) {
+      console.log(err);
+  }
+});
+
+document.getElementById("pokemonForm").addEventListener("submit", async function (event) {
+  event.preventDefault();
+  
+ 
