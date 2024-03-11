@@ -146,4 +146,6 @@ document.getElementById("loadPokemon").addEventListener("click", async function 
 document.getElementById("pokemonForm").addEventListener("submit", async function (event) {
   event.preventDefault();
   
- 
+  const pokemonName = document.getElementById("pokemonName").value;
+
+});
